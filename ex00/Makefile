@@ -6,7 +6,7 @@
 #    By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/05 14:24:38 by athonda           #+#    #+#              #
-#    Updated: 2025/06/06 09:32:40 by athonda          ###   ########.fr        #
+#    Updated: 2025/06/06 09:37:31 by athonda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INC_DIR	=	.
 DEP		=	$(wildcard $(patsubst %.cpp,$(INC_DIR)/%.hpp,$(SRC_F)))
 
 CC		=	c++
-CFLAGS	=	-g -Wall -Wextra -Werror -std=++98
+CFLAGS	=	-g -Wall -Wextra -Werror -std=c++98
 IFLAGS	=	I$(INC_DIR)
 
 $(NAME): $(OBJ)
