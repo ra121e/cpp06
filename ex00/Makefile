@@ -6,7 +6,7 @@
 #    By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/05 14:24:38 by athonda           #+#    #+#              #
-#    Updated: 2025/06/06 09:37:31 by athonda          ###   ########.fr        #
+#    Updated: 2025/06/06 12:55:54 by athonda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ fclean: clean
 
 re: fclean all
 
-#norm:
-#	clear
-#	@norminette $(SRC) $(DEP)
+norm:
+	clear
+	nm -u $(NAME)
+	grep -n -e "vector" -e "list" -e "map" -e "algorithm"
