@@ -6,7 +6,7 @@
 #    By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/05 14:24:38 by athonda           #+#    #+#              #
-#    Updated: 2025/06/06 14:27:58 by athonda          ###   ########.fr        #
+#    Updated: 2025/06/07 08:17:16 by athonda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME	=	Converter
 
 SRC_F	=	main.cpp \
 			ScalarConverter.cpp
+
 SRC_DIR	=	.
 SRC		=	$(SRC_F:%.cpp=$(SRC_DIR)/%.cpp)
 
@@ -24,7 +25,7 @@ INC_DIR	=	.
 DEP		=	$(wildcard $(patsubst %.cpp,$(INC_DIR)/%.hpp,$(SRC_F)))
 
 CC		=	c++
-CFLAGS	=	-g -Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-g -Wall -Werror -Wextra -std=c++98
 IFLAGS	=	-I$(INC_DIR)
 
 $(NAME): $(OBJ)
@@ -49,4 +50,4 @@ re: fclean all
 norm:
 	clear
 	nm -u $(NAME)
-	grep -n -e "main" -e "vector" -e "list" -e "map" -e "algorithm" $(SRC) $(DEP)
+	grep -n -e "vector" -e "map" -e "list" -e "algorithm" -e "main" $(SRC) $(DEP)
