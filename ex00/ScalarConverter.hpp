@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/07 08:28:18 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/07 13:13:28 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ class ScalarConverter
 		ScalarConverter(ScalarConverter const &other);
 		ScalarConverter	&operator=(ScalarConverter const &other);
 
-		int	checkType(std::string const &s);
+		static int	checkType(std::string const &s);
+		static int	checkChar(std::string const &s);
 };
