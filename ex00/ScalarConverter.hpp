@@ -6,12 +6,21 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/07 13:13:28 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/07 14:35:25 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
+
+enum e_ScalarType
+{
+	TYPE_CHAR,
+	TYPE_INT,
+	TYPE_DOUBLE,
+	TYPE_FLOAT,
+	TYPE_INVALID
+};
 
 class ScalarConverter
 {
@@ -23,6 +32,6 @@ class ScalarConverter
 		ScalarConverter(ScalarConverter const &other);
 		ScalarConverter	&operator=(ScalarConverter const &other);
 
-		static int	checkType(std::string const &s);
+		static e_ScalarType	checkType(std::string const &s);
 		static int	checkChar(std::string const &s);
 };
