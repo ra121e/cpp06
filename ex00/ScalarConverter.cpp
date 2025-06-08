@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/08 16:43:34 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/08 17:23:12 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,34 @@ int		ScalarConverter::checkInt(std::string const &s)
 
 int	ScalarConverter::checkDouble(std::string const &s)
 {
-	std::cout << s << std::endl;
-	return (0);
+	std::string	const &dot = ".";
+	size_t	pos = 0;
+	size_t	pos2 = 0;
+	if((pos = s.find(dot, pos)) == std::string::npos)
+	{
+		std::cout << pos <<std::endl;
+		return (0);
+	}
+	if ((pos2 = s.find(dot, pos + 1)) != std::string::npos)
+	{
+		std::cout << "double pos" <<std::endl;
+		return (0);
+	}
+	else
+	{
+		std::string::const_iterator dotpos = s.begin() + pos;
+		for (std::string::const_iterator it = s.begin(); it != s.end(); ++it)
+		{
+			if (it != dotpos && !isdigit(*it))
+				return (0);
+		}
+		return (1);
+	}
 }
 
 int	ScalarConverter::checkFloat(std::string const &s)
 {
-	std::cout << s << std::endl;
+	(void)s;
 	return (0);
 }
 
