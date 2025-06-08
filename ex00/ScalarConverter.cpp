@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/08 13:16:19 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/08 16:43:34 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ int		ScalarConverter::checkChar(std::string const &s)
 
 int		ScalarConverter::checkInt(std::string const &s)
 {
-	std::cout << s << std::endl;
-	return (0);
+	for (std::string::const_iterator it = s.begin(); it != s.end(); ++it)
+	{
+		if (!isdigit(*it))
+			return (0);
+	}
+	return (1);
 }
 
 int	ScalarConverter::checkDouble(std::string const &s)
@@ -58,27 +62,6 @@ void	ScalarConverter::convert(std::string const &input)
 {
 	std::cout << input << std::endl;
 	e_ScalarType	type = checkType(input);
-
-	//test for iterator
-	std::istream_iterator<char>	a(std::cin);
-	std::istream_iterator<char>	b;
-
-	std::cout << "iterator a is " << *a << std::endl;
-	++a;
-	std::cout << "iterator a after increment is " << *a << std::endl;
-	std::cout << "iterator b as end is " << *b << std::endl;
-
-	// test for inside of std::cin
-	//std::streambuf *buf = std::cin.rdbuf();
-	//int c = buf->sbumpc();
-	//std::cout << "the ascii number of input is: " << c << std::endl;
-
-
-	//normal >>
-	//std::string str;
-	//std::cin >> str;
-	//std::cout << "cin test: str " << str << std::endl;
-	//std::cout << "cin test: std::cin " << std::cin << std::endl;
 
 	switch(type)
 	{
