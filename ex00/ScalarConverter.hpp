@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/08 09:53:58 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/08 20:37:05 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ enum e_ScalarType
 {
 	TYPE_CHAR,
 	TYPE_INT,
-	TYPE_DOUBLE,
 	TYPE_FLOAT,
+	TYPE_DOUBLE,
 	TYPE_INVALID
 };
 
