@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/07 14:35:25 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/08 09:53:58 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,7 @@ class ScalarConverter
 
 		static e_ScalarType	checkType(std::string const &s);
 		static int	checkChar(std::string const &s);
+		static int	checkInt(std::string const &s);
+		static int	checkDouble(std::string const &s);
+		static int	checkFloat(std::string const &s);
 };
