@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/08 09:56:03 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/08 12:11:59 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,15 @@ void	ScalarConverter::convert(std::string const &input)
 {
 	std::cout << input << std::endl;
 	e_ScalarType	type = checkType(input);
+
+	// test for iterator
+	std::streambuf *buf = std::cin.rdbuf();
+	int c = buf->sbumpc();
+	std::cout << "the ascii number of input is: " << c << std::endl;
+	//std::string str;
+	//std::cin >> str;
+	//std::cout << "cin test: str " << str << std::endl;
+	//std::cout << "cin test: std::cin " << std::cin << std::endl;
 
 	switch(type)
 	{
