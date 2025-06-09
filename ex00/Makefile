@@ -6,7 +6,7 @@
 #    By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/05 14:24:38 by athonda           #+#    #+#              #
-#    Updated: 2025/06/07 08:17:16 by athonda          ###   ########.fr        #
+#    Updated: 2025/06/09 13:07:20 by athonda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ IFLAGS	=	-I$(INC_DIR)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INC_DIR)/$(DEP)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(DEP)
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
