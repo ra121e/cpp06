@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/08 20:37:28 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/09 09:35:32 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ e_ScalarType		ScalarConverter::checkType(std::string const &s)
 		return (TYPE_CHAR);
 	else if (checkInt(s))
 		return (TYPE_INT);
-	else if (checkDouble(s))
-		return (TYPE_FLOAT);
 	else if (checkFloat(s))
+		return (TYPE_FLOAT);
+	else if (checkDouble(s))
 		return (TYPE_DOUBLE);
 	return (TYPE_INVALID);
 }
