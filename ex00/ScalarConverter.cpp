@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/09 09:35:32 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:26:16 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,27 @@
 #include <iostream>		// std::cout
 #include <iterator>		// istream_iterator
 #include "ScalarConverter.hpp"
+
+
+int	ScalarConverter::checkFloatSymbol(std::string const &s)
+{
+	if (!s.compare("inff") || !s.compare("+inff") || !s.compare("-inff") || \
+		!s.compare("nanf") || !s.compare("+nanf") || !s.compare("-nanf"))
+	{
+		return (1);
+	}
+	return (0);
+}
+
+int	ScalarConverter::checkDoubleSymbol(std::string const &s)
+{
+	if (!s.compare("inf") || !s.compare("+inf") || !s.compare("-inf") || \
+		!s.compare("nan") || !s.compare("+nan") || !s.compare("-nan"))
+	{
+		return (1);
+	}
+	return (0);
+}
 
 int		ScalarConverter::checkChar(std::string const &s)
 {
@@ -81,7 +102,11 @@ int	ScalarConverter::checkDouble(std::string const &s)
 
 e_ScalarType		ScalarConverter::checkType(std::string const &s)
 {
-	if (checkChar(s))
+	if (checkFloatSymbol(s))
+		return (TYPE_FLOAT_SYMBOL);
+	else if (checkDoubleSymbol(s))
+		return (TYPE_DOUBLE_SYMBOL);
+	else if (checkChar(s))
 		return (TYPE_CHAR);
 	else if (checkInt(s))
 		return (TYPE_INT);
@@ -99,19 +124,26 @@ void	ScalarConverter::convert(std::string const &input)
 
 	switch(type)
 	{
-		case 0:
+		case TYPE_FLOAT_SYMBOL:
+			std::cout << type << std::endl;
+			convertFloatSymbol(input);
+			break ;
+		case TYPE_DOUBLE_SYMBOL:
 			std::cout << type << std::endl;
 			break ;
-		case 1:
+		case TYPE_CHAR:
 			std::cout << type << std::endl;
 			break ;
-		case 2:
+		case TYPE_INT:
 			std::cout << type << std::endl;
 			break ;
-		case 3:
+		case TYPE_FLOAT:
 			std::cout << type << std::endl;
 			break ;
-		case 4:
+		case TYPE_DOUBLE:
+			std::cout << type << std::endl;
+			break ;
+		case TYPE_INVALID:
 			std::cout << type << std::endl;
 			break ;
 	}
