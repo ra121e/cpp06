@@ -6,10 +6,12 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/10 21:09:34 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/10 21:43:41 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ios>			// fixed
+#include <iomanip>		// setprecision
 #include <cctype>		// isdigit
 #include <string>		// string
 #include <iostream>		// std::cout
@@ -166,6 +168,14 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s)
 
 }
 
+void	ScalarConverter::convertChar(std::string s)
+{
+	std::cout << s << std::endl;
+	std::cout << static_cast<int>(s[0]) << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << static_cast<float>(s[0]) << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << static_cast<double>(s[0]) << std::endl;
+}
+
 void	ScalarConverter::convert(std::string const &input)
 {
 	e_ScalarType	type = checkType(input);
@@ -179,7 +189,7 @@ void	ScalarConverter::convert(std::string const &input)
 			convertDoubleSymbol(input);
 			break ;
 		case TYPE_CHAR:
-			std::cout << type << std::endl;
+			convertChar(input);
 			break ;
 		case TYPE_INT:
 			std::cout << type << std::endl;
