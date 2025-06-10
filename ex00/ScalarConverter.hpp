@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/10 19:12:00 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/10 19:28:51 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,7 @@ class ScalarConverter
 		static int	checkInt(std::string const &s);
 		static int	checkDouble(std::string const &s);
 		static int	checkFloat(std::string const &s);
+
+		static void	convertFloatSymbol(std::string const &s);
+
 };

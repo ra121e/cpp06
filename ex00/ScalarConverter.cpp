@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/10 19:26:16 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/10 20:56:59 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,15 +117,37 @@ e_ScalarType		ScalarConverter::checkType(std::string const &s)
 	return (TYPE_INVALID);
 }
 
+void	ScalarConverter::convertFloatSymbol(std::string const &s)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (s[0] == '+')
+		std::cout << "float: " << s.substr(1) << std::endl;
+	else
+		std::cout << "float: " << s << std::endl;
+	if (s.find("inff", 0) != s.npos)
+	{
+		if (s[0] == '-')
+			std::cout << "double: -inf" << std::endl;
+		else
+			std::cout << "double: inf" << std::endl;
+	}
+	else
+	{
+		if (s[0] == '-')
+			std::cout << "double: -nan" << std::endl;
+		else
+			std::cout << "double: nan" << std::endl;
+	}
+}
+
 void	ScalarConverter::convert(std::string const &input)
 {
-	std::cout << input << std::endl;
 	e_ScalarType	type = checkType(input);
 
 	switch(type)
 	{
 		case TYPE_FLOAT_SYMBOL:
-			std::cout << type << std::endl;
 			convertFloatSymbol(input);
 			break ;
 		case TYPE_DOUBLE_SYMBOL:
