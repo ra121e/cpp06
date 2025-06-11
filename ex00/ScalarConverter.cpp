@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/10 21:43:41 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 14:17:19 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,10 +170,11 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s)
 
 void	ScalarConverter::convertChar(std::string s)
 {
-	std::cout << s << std::endl;
-	std::cout << static_cast<int>(s[0]) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << static_cast<float>(s[0]) << "f" << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << static_cast<double>(s[0]) << std::endl;
+	char c = s[0];
+	std::cout << c << std::endl;
+	std::cout << static_cast<int>(c) << std::endl;
+	std::cout << std::scientific << std::setprecision(8) << static_cast<float>(c) << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(5) << static_cast<double>(c) << std::endl;
 }
 
 void	ScalarConverter::convert(std::string const &input)
