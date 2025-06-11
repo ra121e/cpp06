@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 17:21:49 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:23:57 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,10 +173,10 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s)
 void	ScalarConverter::convertChar(std::string const &s)
 {
 	char c = static_cast<char>(s[0]);
-	std::cout << c << std::endl;
-	std::cout << static_cast<int>(c) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
+	std::cout << "char: '" << c << "'" << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
 void	ScalarConverter::convertFloat(std::string const &s)
