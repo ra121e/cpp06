@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 16:18:12 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 16:26:42 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@ int		ScalarConverter::checkChar(std::string const &s)
 	return (0);
 }
 
-int		ScalarConverter::checkInt(std::string const &s)
-{
-	for (std::string::const_iterator it = s.begin(); it != s.end(); ++it)
-	{
-		if (!isdigit(*it))
-			return (0);
-	}
-	return (1);
-}
 
 int	ScalarConverter::checkFloat(std::string const &s)
 {
@@ -100,6 +91,16 @@ int	ScalarConverter::checkDouble(std::string const &s)
 		}
 		return (1);
 	}
+}
+
+int		ScalarConverter::checkInt(std::string const &s)
+{
+	for (std::string::const_iterator it = s.begin(); it != s.end(); ++it)
+	{
+		if (!isdigit(*it))
+			return (0);
+	}
+	return (1);
 }
 
 e_ScalarType		ScalarConverter::checkType(std::string const &s)
@@ -168,13 +169,18 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s)
 
 }
 
-void	ScalarConverter::convertChar(std::string s)
+void	ScalarConverter::convertChar(std::string const &s)
 {
 	char c = static_cast<char>(s[0]);
 	std::cout << c << std::endl;
 	std::cout << static_cast<int>(c) << std::endl;
 	std::cout << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
 	std::cout << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
+}
+
+void	ScalarConverter::convertFloat(std::string const &s)
+{
+	(void)s;
 }
 
 void	ScalarConverter::convert(std::string const &input)
@@ -194,6 +200,7 @@ void	ScalarConverter::convert(std::string const &input)
 			break ;
 		case TYPE_INT:
 			std::cout << type << std::endl;
+			convertFloat(input);
 			break ;
 		case TYPE_FLOAT:
 			std::cout << type << std::endl;
