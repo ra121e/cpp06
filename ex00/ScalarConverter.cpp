@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 18:06:36 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 18:20:13 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,7 +185,11 @@ void	ScalarConverter::convertChar(std::string const &s)
 void	ScalarConverter::convertFloat(std::string const &s)
 {
 	float	f = atof(s.c_str());
-	std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
+	char	c = static_cast<char>(f);
+	if (f < 32 || f >= 127)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << c << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(f) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
@@ -194,7 +198,11 @@ void	ScalarConverter::convertFloat(std::string const &s)
 void	ScalarConverter::convertDouble(std::string const &s)
 {
 	double	d = atof(s.c_str());
-	std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+	char	c = static_cast<char>(d);
+	if (d < 32 || d >= 127)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << c << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(d) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
@@ -203,7 +211,11 @@ void	ScalarConverter::convertDouble(std::string const &s)
 void	ScalarConverter::convertInt(std::string const &s)
 {
 	int		i = atoi(s.c_str());
-	std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
+	char	c = static_cast<char>(i);
+	if (i < 32 || i >= 127)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << c << "'" << std::endl;
 	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
