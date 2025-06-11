@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 16:26:42 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:21:49 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>		// string
 #include <iostream>		// std::cout
 #include <iterator>		// istream_iterator
+#include <cstdlib>		// atof
 #include "ScalarConverter.hpp"
 
 
@@ -180,7 +181,11 @@ void	ScalarConverter::convertChar(std::string const &s)
 
 void	ScalarConverter::convertFloat(std::string const &s)
 {
-	(void)s;
+	float	f = atof(s.c_str());
+	std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
+	std::cout << "int: " << static_cast<int>(f) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 }
 
 void	ScalarConverter::convert(std::string const &input)
@@ -198,14 +203,13 @@ void	ScalarConverter::convert(std::string const &input)
 		case TYPE_CHAR:
 			convertChar(input);
 			break ;
-		case TYPE_INT:
-			std::cout << type << std::endl;
+		case TYPE_FLOAT:
 			convertFloat(input);
 			break ;
-		case TYPE_FLOAT:
+		case TYPE_DOUBLE:
 			std::cout << type << std::endl;
 			break ;
-		case TYPE_DOUBLE:
+		case TYPE_INT:
 			std::cout << type << std::endl;
 			break ;
 		case TYPE_INVALID:
