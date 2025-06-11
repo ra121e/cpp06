@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 18:20:13 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 18:24:03 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,10 @@ int	ScalarConverter::checkDouble(std::string const &s)
 
 int		ScalarConverter::checkInt(std::string const &s)
 {
-	for (std::string::const_iterator it = s.begin(); it != s.end(); ++it)
+	size_t	start = 0;
+	if (*(s.begin()) == '+' || *(s.begin()) == '-')
+		start = 1;
+	for (std::string::const_iterator it = s.begin() + start; it != s.end(); ++it)
 	{
 		if (!isdigit(*it))
 			return (0);
