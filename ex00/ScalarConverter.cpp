@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 17:23:57 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:33:52 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,15 @@ void	ScalarConverter::convertFloat(std::string const &s)
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 }
 
+void	ScalarConverter::convertDouble(std::string const &s)
+{
+	double	d = atof(s.c_str());
+	std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+	std::cout << "int: " << static_cast<int>(d) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+}
+
 void	ScalarConverter::convert(std::string const &input)
 {
 	e_ScalarType	type = checkType(input);
@@ -207,7 +216,7 @@ void	ScalarConverter::convert(std::string const &input)
 			convertFloat(input);
 			break ;
 		case TYPE_DOUBLE:
-			std::cout << type << std::endl;
+			convertDouble(input);
 			break ;
 		case TYPE_INT:
 			std::cout << type << std::endl;
