@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 17:38:46 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 18:00:13 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ int	ScalarConverter::checkFloat(std::string const &s)
 			return (0);
 		}
 	}
-	for (size_t i = 0; i < s.length() - 1; ++i)
+	size_t	start = 0;
+	if (*(s.begin()) == '+' || *(s.begin()) == '-')
+		start = 1;
+	for (size_t i = start; i < s.length() - 1; ++i)
 	{
 		if (i != pos && !isdigit(s[i]))
 			return (0);
