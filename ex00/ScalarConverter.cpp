@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 18:04:10 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 18:06:36 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,7 @@ int	ScalarConverter::checkDouble(std::string const &s)
 	if((pos = s.find(dot, pos)) == std::string::npos)
 		return (0);
 	if ((pos2 = s.find(dot, pos + 1)) != std::string::npos)
-	{
-		std::cout << "double pos" <<std::endl;
 		return (0);
-	}
 	else
 	{
 		size_t	start = 0;
