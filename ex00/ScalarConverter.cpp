@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/11 17:33:52 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/11 17:38:46 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,15 @@ void	ScalarConverter::convertDouble(std::string const &s)
 	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
 
+void	ScalarConverter::convertInt(std::string const &s)
+{
+	int		i = atoi(s.c_str());
+	std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+}
+
 void	ScalarConverter::convert(std::string const &input)
 {
 	e_ScalarType	type = checkType(input);
@@ -219,7 +228,7 @@ void	ScalarConverter::convert(std::string const &input)
 			convertDouble(input);
 			break ;
 		case TYPE_INT:
-			std::cout << type << std::endl;
+			convertInt(input);
 			break ;
 		case TYPE_INVALID:
 			std::cout << type << std::endl;
