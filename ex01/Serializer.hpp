@@ -6,13 +6,14 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:11:30 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 21:00:38 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 21:29:18 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <cstdint>
+#include "Data.hpp"
 
+typedef unsigned long uintptr_t;
 
 class Serializer
 {
