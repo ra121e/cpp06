@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 10:46:07 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 13:38:56 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,39 @@ enum e_ScalarType
 	TYPE_FLOAT,
 	TYPE_DOUBLE,
 	TYPE_INVALID
+};
+
+struct s_result_c
+{
+	char	value;
+	bool	possible;
+	bool	displayable;
+};
+
+struct s_result_i
+{
+	int		value;
+	bool	possible;
+};
+
+struct s_result_f
+{
+	float	value;
+	bool	possible;
+};
+
+struct s_result_d
+{
+	double	value;
+	bool	possible;
+};
+
+struct	s_result
+{
+	struct s_result_c	c_res;
+	struct s_result_i	i_res;
+	struct s_result_f	f_res;
+	struct s_result_d	d_res;
 };
 
 class ScalarConverter
@@ -44,7 +77,7 @@ class ScalarConverter
 
 		static void	convertFloatSymbol(std::string const &s);
 		static void	convertDoubleSymbol(std::string const &s);
-		static void	convertChar(std::string const &s);
+		static void	convertChar(std::string const &s, s_result &res);
 		static void	convertFloat(std::string const &s);
 		static void	convertDouble(std::string const &s);
 		static void	convertInt(std::string const &s);

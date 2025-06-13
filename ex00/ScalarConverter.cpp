@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 10:45:52 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 13:54:10 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,14 +191,24 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s)
 
 }
 
-void	ScalarConverter::convertChar(std::string const &s)
+void	ScalarConverter::convertChar(std::string const &s, s_result &res)
 {
 	char c = static_cast<char>(s[0]);
-	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "char: '" << c << "'" << std::endl;
-	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::endl;
+	res.c_res.displayable = true;
+	res.c_res.possible = true;
+	res.c_res.value = c;
+	res.i_res.possible = true;
+	res.i_res.value = static_cast<int>(c);
+	res.f_res.possible = true;
+	res.f_res.value = static_cast<float>(c);
+	res.d_res.possible = true;
+	res.d_res.value = static_cast<double>(c);
+
+//	std::cout << std::fixed << std::setprecision(1);
+//	std::cout << "char: '" << c << "'" << std::endl;
+//	std::cout << "int: " << static_cast<int>(c) << std::endl;
+//	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+//	std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
 
 void	ScalarConverter::convertFloat(std::string const &s)
@@ -260,6 +270,11 @@ void	ScalarConverter::convert(std::string const &input)
 	e_ScalarType	type = checkType(input);
 	std::cout << "type: " << type << std::endl;
 
+	s_result	res;
+	res.c_res.value = 0;
+	res.c_res.possible = false;
+	res.c_res.displayable = false;
+
 	switch(type)
 	{
 		case TYPE_FLOAT_SYMBOL:
@@ -269,7 +284,7 @@ void	ScalarConverter::convert(std::string const &input)
 			convertDoubleSymbol(input);
 			break ;
 		case TYPE_CHAR:
-			convertChar(input);
+			convertChar(input, res);
 			break ;
 		case TYPE_FLOAT:
 			convertFloat(input);
@@ -284,5 +299,38 @@ void	ScalarConverter::convert(std::string const &input)
 			convertInvalid(input);
 			break ;
 	}
+
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "char: ";
+	if (!res.c_res.possible)
+		std::cout << "impossible";
+	else if (!res.c_res.displayable)
+		std::cout << "non displayable";
+	else
+		std::cout << "'" << res.c_res.value << "'";
+	std::cout << std::endl;
+
+	std::cout << "int: ";
+	if (!res.i_res.possible)
+		std::cout << "impossible";
+	else
+		std::cout << res.i_res.value;
+	std::cout << std::endl;
+
+	std::cout << "float: ";
+	if (!res.f_res.possible)
+		std::cout << "impossible";
+	else
+		std::cout << res.f_res.value << "f";
+	std::cout << std::endl;
+
+	std::cout << "double: ";
+	if (!res.d_res.possible)
+		std::cout << "impossible";
+	else
+		std::cout << res.d_res.value;
+	std::cout << std::endl;
+//	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+//	std::cout << "double: " << static_cast<double>(c) << std::endl;
 
 }
