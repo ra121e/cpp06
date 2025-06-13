@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 10:01:16 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 10:30:21 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,47 +203,47 @@ void	ScalarConverter::convertChar(std::string const &s)
 
 void	ScalarConverter::convertFloat(std::string const &s)
 {
-	float	f = atof(s.c_str());
-	char	c = static_cast<char>(f);
-	if (f >= 32 && f < 127)
+	float	num = atof(s.c_str());
+	char	c = static_cast<char>(num);
+	if (num >= 32 && num < 127)
 		std::cout << "char: '" << c << "'" << std::endl;
-	else if((f >= 0.0 && f < 32) || (f >= 127 && f < 128))
+	else if((num >= 0.0 && num < 32) || (num >= 127 && num < 128))
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << static_cast<int>(f) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
+	std::cout << "int: " << static_cast<int>(num) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << num << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << std::endl;
 }
 
 void	ScalarConverter::convertDouble(std::string const &s)
 {
-	double	d = atof(s.c_str());
-	char	c = static_cast<char>(d);
-	if (d >= 32 && d < 127)
+	double	num = atof(s.c_str());
+	char	c = static_cast<char>(num);
+	if (num >= 32 && num < 127)
 		std::cout << "char: '" << c << "'" << std::endl;
-	else if((d >= 0.0 && d < 32) || (d >= 127 && d < 128))
+	else if((num >= 0.0 && num < 32) || (num >= 127 && num < 128))
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << static_cast<int>(d) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+	std::cout << "int: " << static_cast<int>(num) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
 }
 
 void	ScalarConverter::convertInt(std::string const &s)
 {
-	int		i = atoi(s.c_str());
-	char	c = static_cast<char>(i);
-	if (i >= 32 && i < 127)
+	int		num = atoi(s.c_str());
+	char	c = static_cast<char>(num);
+	if (num >= 32 && num < 127)
 		std::cout << "char: '" << c << "'" << std::endl;
-	else if((i >= 0 && i < 32) || (i >= 127 && i < 128))
+	else if((num >= 0 && num < 32) || (num >= 127 && num < 128))
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+	std::cout << "int: " << num << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << std::endl;
 }
 
 void	ScalarConverter::convertInvalid(std::string const &s)
