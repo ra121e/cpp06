@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 15:00:31 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:12:46 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,12 +237,12 @@ void	ScalarConverter::convertInt(std::string const &s, s_result &res)
 		res.i_res.possible = false;
 		res.i_res.value = 0;
 	}
-	if (num >= std::numeric_limits<float>::min() && num <= std::numeric_limits<float>::max())
+	if (num >= (-1) * std::numeric_limits<float>::max() && num <= std::numeric_limits<float>::max())
 	{
 		res.f_res.possible = true;
 		res.f_res.value = static_cast<float>(num);
 	}
-	if (num >= std::numeric_limits<double>::min() && num <= std::numeric_limits<double>::max())
+	if (num >= (-1) * std::numeric_limits<double>::max() && num <= std::numeric_limits<double>::max())
 	{
 		res.d_res.possible = true;
 		res.d_res.value = static_cast<double>(num);
@@ -266,12 +266,12 @@ void	ScalarConverter::convertFloat(std::string const &s, s_result &res)
 		res.i_res.possible = true;
 		res.i_res.value = num;
 	}
-	if (num >= std::numeric_limits<float>::min() && num <= std::numeric_limits<float>::max())
+	if (num >= (-1) * std::numeric_limits<float>::max() && num <= std::numeric_limits<float>::max())
 	{
 		res.f_res.possible = true;
 		res.f_res.value = static_cast<float>(num);
 	}
-	if (num >= std::numeric_limits<double>::min() && num <= std::numeric_limits<double>::max())
+	if (num >= (-1) * std::numeric_limits<double>::max() && num <= std::numeric_limits<double>::max())
 	{
 		res.d_res.possible = true;
 		res.d_res.value = static_cast<double>(num);
@@ -295,12 +295,12 @@ void	ScalarConverter::convertDouble(std::string const &s, s_result &res)
 		res.i_res.possible = true;
 		res.i_res.value = num;
 	}
-	if (num >= std::numeric_limits<float>::min() && num <= std::numeric_limits<float>::max())
+	if (num >= (-1) * std::numeric_limits<float>::max() && num <= std::numeric_limits<float>::max())
 	{
 		res.f_res.possible = true;
 		res.f_res.value = static_cast<float>(num);
 	}
-	if (num >= std::numeric_limits<double>::min() && num <= std::numeric_limits<double>::max())
+	if (num >= (-1) * std::numeric_limits<double>::max() && num <= std::numeric_limits<double>::max())
 	{
 		res.d_res.possible = true;
 		res.d_res.value = static_cast<double>(num);
