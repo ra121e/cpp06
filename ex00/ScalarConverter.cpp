@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 18:39:11 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 19:17:09 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,62 +54,21 @@ int	ScalarConverter::checkFloat(std::string const &s)
 	if (*(s.end() - 1) != 'f')
 		return (0);
 
-	double	num;
 	char	*str_end;
-	num = std::strtod(s.c_str(), &str_end);
-	if (num && str_end[0] == 'f' && str_end[1] == '\0')
+	std::strtod(s.c_str(), &str_end);
+	if (str_end[0] == 'f' && str_end[1] == '\0')
 		return (1);
 	return (0);
-//	size_t pos = -1;
-//	if ((pos = s.find('.', 0)) != std::string::npos)
-//	{
-//		size_t pos2 = 0;
-//		if ((pos2 = s.find('.', pos + 1)) != std::string::npos)
-//		{
-//			std::cout << "double dots" <<std::endl;
-//			return (0);
-//		}
-//	}
-//	size_t	start = 0;
-//	if (*(s.begin()) == '+' || *(s.begin()) == '-')
-//		start = 1;
-//	for (size_t i = start; i < s.length() - 1; ++i)
-//	{
-//		if (i != pos && !isdigit(s[i]))
-//			return (0);
-//	}
-//	return (1);
 }
 
 int	ScalarConverter::checkDouble(std::string const &s)
 {
-	double	num;
 	char	*str_end;
 
-	num = std::strtod(s.c_str(), &str_end);
-	if (num && str_end[0] == '\0')
+	std::strtod(s.c_str(), &str_end);
+	if (str_end[0] == '\0')
 		return (1);
 	return (0);
-//	std::string	const &dot = ".";
-//	size_t	pos = 0;
-//	size_t	pos2 = 0;
-//	if((pos = s.find(dot, pos)) == std::string::npos)
-//		return (0);
-//	if ((pos2 = s.find(dot, pos + 1)) != std::string::npos)
-//		return (0);
-//	else
-//	{
-//		size_t	start = 0;
-//		if (*(s.begin()) == '+' || *(s.begin()) == '-')
-//			start = 1;
-//		std::string::const_iterator dotpos = s.begin() + pos;
-//		for (std::string::const_iterator it = s.begin() + start; it != s.end(); ++it)
-//		{
-//			if (it != dotpos && !isdigit(*it))
-//				return (0);
-//		}
-//		return (1);
-//	}
 }
 
 int		ScalarConverter::checkInt(std::string const &s)
@@ -188,7 +147,6 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s)
 		std::cout << "double: " << s.substr(1) << std::endl;
 	else
 		std::cout << "double: " << s << std::endl;
-
 }
 
 void	ScalarConverter::convertChar(std::string const &s, s_result &res)
@@ -310,7 +268,6 @@ void	ScalarConverter::convertDouble(std::string const &s, s_result &res)
 void	ScalarConverter::convert(std::string const &input)
 {
 	e_ScalarType	type = checkType(input);
-
 	s_result	res;
 	switch(type)
 	{
