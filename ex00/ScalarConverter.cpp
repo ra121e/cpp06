@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 18:32:53 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 18:39:11 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -307,16 +307,6 @@ void	ScalarConverter::convertDouble(std::string const &s, s_result &res)
 	}
 }
 
-
-void	ScalarConverter::convertInvalid(std::string const &s)
-{
-	(void)s;
-	std::cout << "char: impossible" << std::endl;
-	std::cout << "int: impossible" << std::endl;
-	std::cout << "float: impossible" << std::endl;
-	std::cout << "double: impossible" << std::endl;
-}
-
 void	ScalarConverter::convert(std::string const &input)
 {
 	e_ScalarType	type = checkType(input);
@@ -343,7 +333,6 @@ void	ScalarConverter::convert(std::string const &input)
 			convertDouble(input, res);
 			break ;
 		case TYPE_INVALID:
-			convertInvalid(input);
 			break ;
 	}
 
