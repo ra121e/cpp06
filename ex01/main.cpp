@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:04:19 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 21:45:30 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 21:51:42 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,10 @@ int	main(void)
 	uintptr_t	b;
 	b = Serializer::serialize(&a);
 	std::cout << "address of a: " << b << std::endl;
+
+	Data	*c;
+	c = Serializer::deserialize(b);
+	std::cout << "address of b: " << c << std::endl;
+	std::cout << "char c: " << c->c << std::endl;
 	return (0);
 }
