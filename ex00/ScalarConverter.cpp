@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 13:54:10 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 14:38:45 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,51 @@ void	ScalarConverter::convertChar(std::string const &s, s_result &res)
 //	std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
 
+void	ScalarConverter::convertInt(std::string const &s, s_result &res)
+{
+	char	*str_end;
+	double	num = strtod(s.c_str(), &str_end);
+//	char	c = static_cast<char>(num);
+	if (num >= 32 && num < 127)
+	{
+		res.c_res.possible = true;
+		res.c_res.displayable = true;
+		res.c_res.value = static_cast<char>(num);
+	}
+	else if((num >= 0 && num < 32) || (num >= 127 && num < 128))
+	{
+		res.c_res.possible = true;
+		res.c_res.displayable = false;
+		res.c_res.value = static_cast<char>(num);
+	}
+	else
+	{
+		res.c_res.possible = false;
+		res.c_res.displayable = false;
+		res.c_res.value = static_cast<char>(num);
+	}
+	if (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max())
+	{
+		res.i_res.possible = true;
+		res.i_res.value = num;
+	}
+	else
+	{
+		res.i_res.possible = false;
+		res.i_res.value = 0;
+	}
+	if (num >= std::numeric_limits<float>::min() && num <= std::numeric_limits<float>::max())
+	{
+		res.f_res.possible = true;
+		res.f_res.value = static_cast<float>(num);
+	}
+	if (num >= std::numeric_limits<double>::min() && num <= std::numeric_limits<double>::max())
+	{
+		res.d_res.possible = true;
+		res.d_res.value = static_cast<double>(num);
+	}
+}
+
 void	ScalarConverter::convertFloat(std::string const &s)
 {
 	float	num = atof(s.c_str());
@@ -241,20 +286,6 @@ void	ScalarConverter::convertDouble(std::string const &s)
 	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
 }
 
-void	ScalarConverter::convertInt(std::string const &s)
-{
-	int		num = atoi(s.c_str());
-	char	c = static_cast<char>(num);
-	if (num >= 32 && num < 127)
-		std::cout << "char: '" << c << "'" << std::endl;
-	else if((num >= 0 && num < 32) || (num >= 127 && num < 128))
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << num << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << std::endl;
-}
 
 void	ScalarConverter::convertInvalid(std::string const &s)
 {
@@ -274,6 +305,12 @@ void	ScalarConverter::convert(std::string const &input)
 	res.c_res.value = 0;
 	res.c_res.possible = false;
 	res.c_res.displayable = false;
+	res.i_res.possible = false;
+	res.i_res.value = 0;
+	res.f_res.possible = false;
+	res.f_res.value = 0.0f;
+	res.d_res.possible = false;
+	res.d_res.value = 0.0;
 
 	switch(type)
 	{
@@ -286,14 +323,14 @@ void	ScalarConverter::convert(std::string const &input)
 		case TYPE_CHAR:
 			convertChar(input, res);
 			break ;
+		case TYPE_INT:
+			convertInt(input, res);
+			break ;
 		case TYPE_FLOAT:
 			convertFloat(input);
 			break ;
 		case TYPE_DOUBLE:
 			convertDouble(input);
-			break ;
-		case TYPE_INT:
-			convertInt(input);
 			break ;
 		case TYPE_INVALID:
 			convertInvalid(input);

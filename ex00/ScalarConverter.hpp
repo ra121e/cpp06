@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 13:38:56 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 14:10:36 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ class ScalarConverter
 		static void	convertFloatSymbol(std::string const &s);
 		static void	convertDoubleSymbol(std::string const &s);
 		static void	convertChar(std::string const &s, s_result &res);
+		static void	convertInt(std::string const &s, s_result &res);
 		static void	convertFloat(std::string const &s);
 		static void	convertDouble(std::string const &s);
-		static void	convertInt(std::string const &s);
 		static void	convertInvalid(std::string const &s);
 };
