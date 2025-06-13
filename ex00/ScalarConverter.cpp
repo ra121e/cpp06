@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 15:12:46 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 18:32:53 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -320,19 +320,8 @@ void	ScalarConverter::convertInvalid(std::string const &s)
 void	ScalarConverter::convert(std::string const &input)
 {
 	e_ScalarType	type = checkType(input);
-	std::cout << "type: " << type << std::endl;
 
 	s_result	res;
-	res.c_res.value = 0;
-	res.c_res.possible = false;
-	res.c_res.displayable = false;
-	res.i_res.possible = false;
-	res.i_res.value = 0;
-	res.f_res.possible = false;
-	res.f_res.value = 0.0f;
-	res.d_res.possible = false;
-	res.d_res.value = 0.0;
-
 	switch(type)
 	{
 		case TYPE_FLOAT_SYMBOL:

@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:33:08 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 14:47:45 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/13 18:30:22 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,45 @@ struct s_result_c
 	char	value;
 	bool	possible;
 	bool	displayable;
+
+	s_result_c():
+		value(0),
+		possible(false),
+		displayable(false)
+	{}
 };
 
 struct s_result_i
 {
 	int		value;
 	bool	possible;
+
+	s_result_i():
+		value(0),
+		possible(false)
+	{}
 };
 
 struct s_result_f
 {
 	float	value;
 	bool	possible;
+
+	s_result_f():
+		value(0.0f),
+		possible(false)
+	{}
 };
 
 struct s_result_d
 {
 	double	value;
 	bool	possible;
+
+	s_result_d():
+		value(0.0),
+		possible(false)
+	{}
 };
 
 struct	s_result
@@ -55,6 +76,9 @@ struct	s_result
 	struct s_result_i	i_res;
 	struct s_result_f	f_res;
 	struct s_result_d	d_res;
+
+	s_result()
+	{}
 };
 
 class ScalarConverter
