@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 21:55:58 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/14 16:15:40 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/14 17:35:36 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(void)
 
 	p = generate();
 	identify(p);
+
+	delete (p);
 
 	return (0);
 }
