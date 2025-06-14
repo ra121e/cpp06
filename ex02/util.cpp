@@ -6,10 +6,11 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 22:12:04 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/14 16:28:16 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/14 17:28:45 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "util.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -17,7 +18,18 @@
 
 Base	*generate(void)
 {
-	Base	*p = new B;
+	Base	*p;
+	int		i;
+
+	srand(clock());
+	i = rand();
+	if (i % 3 == 0)
+		p = new A;
+	else if(i % 3 == 1)
+		p = new B;
+	else
+		p = new C;
+
 	return (p);
 }
 
