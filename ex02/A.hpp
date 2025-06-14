@@ -6,14 +6,15 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 22:00:45 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/13 22:02:57 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/14 16:27:09 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include "Base.hpp"
 
-class A:
-	public	Base
+class A : public Base
 {
-
+	public:
+		~A();
 };

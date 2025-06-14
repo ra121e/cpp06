@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 21:55:58 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/14 16:15:40 by athonda          ###   ########.fr       */
+/*   Created: 2025/06/14 15:54:56 by athonda           #+#    #+#             */
+/*   Updated: 2025/06/14 15:55:35 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Base.hpp"
-#include "util.hpp"
+#include "A.hpp"
 
-int	main(void)
-{
-	Base	*p;
-
-	p = generate();
-	identify(p);
-
-	return (0);
-}
+A::~A()
+{}
