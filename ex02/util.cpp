@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 22:12:04 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/18 15:29:53 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/18 22:17:18 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,35 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
-	A	a;
-	B	b;
-	C	c;
-
-	a = dynamic_cast<A&>(p);
+	try
+	{
+		dynamic_cast<A&>(p);
+		std::cout << "This is A!" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		try
+		{
+			dynamic_cast<B&>(p);
+			std::cout << "This is B!" << std::endl;
+		}
+		catch(std::exception &e)
+		{
+			try
+			{
+				dynamic_cast<C&>(p);
+				std::cout << "This is C!" << std::endl;
+			}
+			catch(std::exception &e)
+			{
+				e.what();
+				std::cout << "This is error!" << std::endl;
+			}
+		}
+	}
 //	b = dynamic_cast<B&>(p);
 //	c = dynamic_cast<C&>(p);
 
-
-	std::cout << "This is A!" << std::endl;
-	std::cout << "This is B!" << std::endl;
-	std::cout << "This is C!" << std::endl;
-	std::cout << "This is error!" << std::endl;
 
 
 }
