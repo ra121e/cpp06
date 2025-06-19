@@ -6,7 +6,7 @@
 #    By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/13 19:38:42 by athonda           #+#    #+#              #
-#    Updated: 2025/06/13 20:03:12 by athonda          ###   ########.fr        #
+#    Updated: 2025/06/19 09:34:07 by athonda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJ) $(DEP)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(DEP)
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	$(CC) $(IFLAGS) -c $< -o $@
 
 .PHONY: all clean flean re
 
