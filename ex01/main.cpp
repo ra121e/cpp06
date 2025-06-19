@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:04:19 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/19 10:12:15 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/19 13:35:35 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,27 +70,29 @@ int	main(void)
 	std::cout << "third line: " << u->num << std::endl;
 	std::cout << "This is the risk of reinterpret_cast" << std::endl;
 
-	// need to delete CFLAGS to compile without alert
-//	printBanner("char* and int*");
-//	char	s[5] = {'a', 'b', 'c', 'd', '\0'};
-//	char	*str;
-//	str = s;
-//	int		*num;
-//	std::cout << "str: " << str << std::endl;
-//	std::cout << "str[0]: " << str[0] << std::endl;
-//	std::cout << "Now, cast char string to int pointer" << std::endl;
-//	num = reinterpret_cast<int*>(str);
-//	std::cout << "int dereference: " << *num << std::endl;
-//	std::cout << "now, change the value in the address" << std::endl;
-//	*num = 1684234850;
-//	std::cout << "int is: " << *num << std::endl;
-//	std::cout << "Then, cast back int pointer to char pointer" << std::endl;
-//	str = reinterpret_cast<char*>(num);
-//	std::cout << str << std::endl;
+	// char* and int* case
+	printBanner("char* and int*");
+	{
+	char	s[5] = {'a', 'b', 'c', 'd', '\0'};
+	char	*str;
+	str = s;
+	int		*num;
+	std::cout << "str: " << str << std::endl;
+	std::cout << "str[0]: " << str[0] << std::endl;
+	std::cout << "Now, cast char string to int pointer" << std::endl;
+	num = reinterpret_cast<int*>(str);
+	std::cout << "int dereference: " << *num << std::endl;
+	std::cout << "now, change the value in the address" << std::endl;
+	*num = 1684234850;
+	std::cout << "int is: " << *num << std::endl;
+	std::cout << "Then, cast back int pointer to char pointer" << std::endl;
+	str = reinterpret_cast<char*>(num);
+	std::cout << str << std::endl;
+	}
 
 	// multiple pointer cases
-
 	printBanner("char** and int**");
+	{
 	char	s[5] = {'a', 'b', 'c', 'd', '\0'};
 	char	*str1;
 	char	**str;
@@ -99,7 +101,7 @@ int	main(void)
 	int		*num1;
 	int		**num;
 	num = &num1;
-	std::cout << "str: " << str << std::endl;
+	std::cout << "str: " << *str << std::endl;
 	std::cout << "str[0]: " << *str[0] << std::endl;
 	std::cout << "Now, cast char string to int pointer" << std::endl;
 	num = reinterpret_cast<int**>(str);
@@ -110,7 +112,7 @@ int	main(void)
 	std::cout << "Then, cast back int pointer to char pointer" << std::endl;
 	str = reinterpret_cast<char**>(num);
 	std::cout << *str << std::endl;
-
+	}
 
 	return (0);
 }
