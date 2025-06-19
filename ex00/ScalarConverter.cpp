@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:46:34 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/19 19:07:28 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/19 19:31:19 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,34 +101,40 @@ e_ScalarType		ScalarConverter::checkType(std::string const &s)
 	return (TYPE_INVALID);
 }
 
-void	ScalarConverter::convertFloatSymbol(std::string const &s)
+void	ScalarConverter::convertFloatSymbol(std::string const &s, s_result &res)
 {
-	std::cout << "char: impossible" << std::endl;
-	std::cout << "int: impossible" << std::endl;
-	if (s[0] == '+')
-		std::cout << "float: " << s.substr(1) << std::endl;
-	else
-		std::cout << "float: " << s << std::endl;
+	res.f_res.possible = true;
+	res.d_res.possible = true;
 	if (s.find("inff", 0) != s.npos)
 	{
 		if (s[0] == '-')
-			std::cout << "double: -inf" << std::endl;
+		{
+			res.f_res.value = -std::numeric_limits<float>::infinity();
+			res.d_res.value = -std::numeric_limits<double>::infinity();
+		}
 		else
-			std::cout << "double: inf" << std::endl;
+		{
+			res.f_res.value = std::numeric_limits<float>::infinity();
+			res.d_res.value = std::numeric_limits<double>::infinity();
+		}
 	}
 	else
 	{
 		if (s[0] == '-')
-			std::cout << "double: -nan" << std::endl;
+		{
+			res.f_res.value = -std::numeric_limits<float>::quiet_NaN();
+			res.d_res.value = -std::numeric_limits<double>::quiet_NaN();
+		}
 		else
-			std::cout << "double: nan" << std::endl;
+		{
+			res.f_res.value = std::numeric_limits<float>::quiet_NaN();
+			res.d_res.value = std::numeric_limits<double>::quiet_NaN();
+		}
 	}
 }
 
 void	ScalarConverter::convertDoubleSymbol(std::string const &s, s_result &res)
 {
-//	std::cout << "char: impossible" << std::endl;
-//	std::cout << "int: impossible" << std::endl;
 	res.f_res.possible = true;
 	res.d_res.possible = true;
 	if (s.find("inf", 0) != s.npos)
@@ -138,13 +144,11 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s, s_result &res)
 			res.f_res.value = -std::numeric_limits<float>::infinity();
 			res.d_res.value = -std::numeric_limits<double>::infinity();
 		}
-//			std::cout << "float: -inff" << std::endl;
 		else
 		{
 			res.f_res.value = std::numeric_limits<float>::infinity();
 			res.d_res.value = std::numeric_limits<double>::infinity();
 		}
-//			std::cout << "float: inff" << std::endl;
 	}
 	else
 	{
@@ -153,18 +157,12 @@ void	ScalarConverter::convertDoubleSymbol(std::string const &s, s_result &res)
 			res.f_res.value = -std::numeric_limits<float>::quiet_NaN();
 			res.d_res.value = -std::numeric_limits<double>::quiet_NaN();
 		}
-//			std::cout << "float: -nanf" << std::endl;
 		else
 		{
 			res.f_res.value = std::numeric_limits<float>::quiet_NaN();
 			res.d_res.value = std::numeric_limits<double>::quiet_NaN();
 		}
-//			std::cout << "float: nanf" << std::endl;
 	}
-//	if (s[0] == '+')
-//		std::cout << "double: " << s.substr(1) << std::endl;
-//	else
-//		std::cout << "double: " << s << std::endl;
 }
 
 void	ScalarConverter::convertChar(std::string const &s, s_result &res)
@@ -290,7 +288,7 @@ void	ScalarConverter::convert(std::string const &input)
 	switch(type)
 	{
 		case TYPE_FLOAT_SYMBOL:
-			convertFloatSymbol(input);
+			convertFloatSymbol(input, res);
 			break ;
 		case TYPE_DOUBLE_SYMBOL:
 			convertDoubleSymbol(input, res);
