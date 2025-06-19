@@ -6,7 +6,7 @@
 #    By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/05 14:24:38 by athonda           #+#    #+#              #
-#    Updated: 2025/06/09 13:07:20 by athonda          ###   ########.fr        #
+#    Updated: 2025/06/19 21:47:18 by athonda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
