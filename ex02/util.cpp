@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 22:12:04 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/19 12:46:07 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/19 12:52:00 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,24 @@ void	identify(Base &p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		A &a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << "This is A!" << std::endl;
 	}
 	catch (std::exception &e)
 	{
 		try
 		{
-			dynamic_cast<B&>(p);
+			B &b = dynamic_cast<B&>(p);
+			(void)b;
 			std::cout << "This is B!" << std::endl;
 		}
 		catch(std::exception &e)
 		{
 			try
 			{
-				dynamic_cast<C&>(p);
+				C &c = dynamic_cast<C&>(p);
+				(void)c;
 				std::cout << "This is C!" << std::endl;
 			}
 			catch(std::exception &e)
