@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:04:19 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/19 13:35:35 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/19 18:00:44 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main(void)
 	num = &num1;
 	std::cout << "str: " << *str << std::endl;
 	std::cout << "str[0]: " << *str[0] << std::endl;
-	std::cout << "Now, cast char string to int pointer" << std::endl;
+	std::cout << "Now, cast char string to int double pointer" << std::endl;
 	num = reinterpret_cast<int**>(str);
 	std::cout << "int dereference: " << **num << std::endl;
 	std::cout << "now, change the value in the address" << std::endl;
@@ -114,5 +114,38 @@ int	main(void)
 	std::cout << *str << std::endl;
 	}
 
+	// multiple pointer cases
+	printBanner("char*** and unsigned long");
+	{
+	char	s[5] = {'a', 'b', 'c', 'd', '\0'};
+	char	*str1;
+	char	**str2;
+	char	***str;
+	char	*c;
+	str1 = s;
+	str2 = &str1;
+	str = &str2;
+//	unsigned long	*num1;
+//	unsigned long	**num;
+	unsigned long	num;
+//	num = &num1;
+	std::cout << "address of str: " << str << std::endl;
+	std::cout << "str array: " << **str << std::endl;
+	std::cout << "str[0]: " << **str[0] << std::endl;
+	std::cout << "str[1]: " << *((**str)+1) << std::endl;
+	std::cout << "str[1]: " << static_cast<void*>(&((**str)[1])) << std::endl;
+	std::cout << "Now, cast char*** string to undigned long pointer" << std::endl;
+	num = reinterpret_cast<unsigned long>(str);
+	std::cout << "int dereference: " << num << std::endl;
+	std::cout << "now, change the value in the address" << std::endl;
+//	unsigned long offset = num - reinterpret_cast<unsigned long>(&((**str)[1]));
+//	std::cout << "offset is " << offset << std::endl;
+	num = num + 228;
+	std::cout << "num is: " << num << std::endl;
+	std::cout << "Then, cast back int pointer to char pointer" << std::endl;
+	c = reinterpret_cast<char*>(num);
+	std::cout << c << std::endl;
+	std::cout << c[0] << std::endl;
+	}
 	return (0);
 }
