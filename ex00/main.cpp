@@ -6,7 +6,7 @@
 /*   By: athonda <athonda@student.42singapore.sg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:49:47 by athonda           #+#    #+#             */
-/*   Updated: 2025/06/19 21:41:00 by athonda          ###   ########.fr       */
+/*   Updated: 2025/06/19 21:44:18 by athonda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Usage: ./Convert <somthing> " << std::endl;
+		std::cerr << "Usage: ./Converter <somthing> " << std::endl;
 		return (0);
 	}
 	std::string	input = av[1];
